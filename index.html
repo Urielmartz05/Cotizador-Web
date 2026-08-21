@@ -94,9 +94,6 @@
 
         var total = 0;
 
-        const checkboxes = document.querySelectorAll('.evt-click');
-        checkboxes.forEach(function(checkbox) {
-
             // Dominio Event Listener
             dominio.addEventListener("click", function () {
                 if (dominio.checked) {
@@ -156,10 +153,6 @@
                 }
                 document.getElementById("total").textContent = total;
             })
-
-        })
-
-
 
     </script>
 </body>
