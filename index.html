@@ -39,7 +39,7 @@
             </label>
             
             <br><br>
-            <label for="dominio">Hosting:
+            <label for="hosting">Hosting:
                 <input class="form-check-input" type="checkbox" id="hosting" name="hosting" data-precio="1500">
                 $1500
             </label>
@@ -69,10 +69,98 @@
             
         </form>
 
+        <div class="total">Total: <span id="total">0</span></div>
+
     </div>
 
     <footer>
         2026 Derechos Reservados
     </footer>
+
+    <script>
+        const dominio = document.querySelector("#dominio");
+        const hosting = document.querySelector("#hosting");
+        const bd = document.querySelector("#bd");
+        const changes = document.querySelector("#changes");
+        const seo = document.querySelector("#seo");
+
+       document.getElementById("total");
+
+        // console.log(Number(dominio.dataset.precio));
+        // console.log(Number(hosting.dataset.precio));
+        // console.log(Number(bd.dataset.precio));
+        // console.log(Number(changes.dataset.precio));
+        // console.log(Number(seo.dataset.precio));
+
+        var total = 0;
+
+        const checkboxes = document.querySelectorAll('.evt-click');
+        checkboxes.forEach(function(checkbox) {
+
+            // Dominio Event Listener
+            dominio.addEventListener("click", function () {
+                if (dominio.checked) {
+                    total+= parseInt(dominio.dataset.precio);
+                    console.log("Dominio seleccionado: " + total)
+                }else{
+                    total-= parseInt(dominio.dataset.precio);
+                    console.log("Dominio no seleccionado")
+                }
+                document.getElementById("total").textContent = total;
+            })
+
+            // Hosting Event Listener
+            hosting.addEventListener("click", function () {
+                if (hosting.checked) {
+                    total+= parseInt(hosting.dataset.precio);
+                    console.log("Hosting seleccionado: " + total)
+                }else{
+                    total-= parseInt(hosting.dataset.precio);
+                    console.log("Hosting no seleccionado")
+                }
+                document.getElementById("total").textContent = total;
+            })
+
+            // bd Event Listener
+            bd.addEventListener("click", function () {
+                if (bd.checked) {
+                    total+= parseInt(bd.dataset.precio);
+                    console.log("Base de datos seleccionada: " + total)
+                }else{
+                    total-= parseInt(bd.dataset.precio);
+                    console.log("Base de datos no seleccionada")
+                }
+                document.getElementById("total").textContent = total;
+            })
+
+            // changes Event Listener
+            changes.addEventListener("click", function () {
+                if (changes.checked) {
+                    total+= parseInt(changes.dataset.precio);
+                    console.log("Cambios seleccionados: " + total);
+                }else{
+                    total-= parseInt(changes.dataset.precio);
+                    console.log("Cambios no seleccionados")
+                }
+                document.getElementById("total").textContent = total;
+            })
+
+            // SEO Event Listener
+            seo.addEventListener("click", function () {
+                if (seo.checked) {
+                    total+= parseInt(seo.dataset.precio);
+                    console.log("SEO seleccionado: " + total)
+                }else{
+                    total-= parseInt(seo.dataset.precio);
+                    console.log("SEO no seleccionado")
+                }
+                document.getElementById("total").textContent = total;
+            })
+
+        })
+
+
+
+    </script>
 </body>
 </html>
