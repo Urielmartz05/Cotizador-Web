@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!-- Font import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scoutie+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prueba</title>
@@ -8,70 +16,114 @@
 <body>
 
     <header>
-        <div class="logo">Logo</div>
-        <div class="menu-nav">
-            <ul>
-                <li><a href="">Inicio</a></li>
-                <li><a href="">Servicios</a></li>
-                <li><a href="">Contacto</a></li>
-            </ul>
-        </div>
+        <nav class="menu-nav">
+            <div class="logo-container">
+                <h1>Logo</h1>
+            </div>
+            <div class="nav-list">
+                <ul>
+                    <li><a href="">Inicio</a></li>
+                    <li><a href="">Servicios</a></li>
+                    <li><a href=""><span id="contact-link">Contacto</span></a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
-    <div class="container">
+    <main>
 
-        <form method="post">
-            <h2>Formulario de Cotizacion</h2>
+        <!-- Title and subtitle -->
+        <section>
 
-            <label for="nombre-cliente">Nombre del cliente</label>
-            <br>
-            <input type="text" name="nombre-cliente" id="nombre-cliente">
-            <br>
-            <label for="numero-pagina">Numero de paginas</label>
-            <br>
-            <input type="number" name="numero-pagina" id="numero-pagina">
-            
-            <!-- Servicios Adicionales -->
-            <br><br>
-            <label for="dominio">Dominio:
-                <input class="form-check-input" type="checkbox" id="dominio" name="dominio" data-precio="600">
-                $600
-            </label>
-            
-            <br><br>
-            <label for="hosting">Hosting:
-                <input class="form-check-input" type="checkbox" id="hosting" name="hosting" data-precio="1500">
-                $1500
-            </label>
-            
-            <br><br>
-            <label for="bd">Base de datos:
-                <input class="form-check-input" type="checkbox" id="bd" name="bd" data-precio="7000">
-                $7000
-            </label>
-            <br><br>
+            <div class="titles">
+                <h1>Cotizador de sitio web</h1>
+                <p>Completa el formulario para generar una cotizacion estimada</p>
+            </div>
 
-            <label for="changes">Cambios del dev:
-                <input class="form-check-input" type="checkbox" id="changes" name="changes" data-precio="2000">
-                $2000
-            </label>
-            <br><br>
+            <div class="form-container">
+                <form method="post">
+                    
+                    <label for="nombre-cliente" class="main-input">Nombre del cliente</label>
+                    <input type="text" name="nombre-cliente" id="nombre-cliente" placeholder="Ej. Ana Lopez">
+                    
+                    <label for="numero-pagina" class="main-input">Numero de paginas</label>
+                    <input type="number" name="numero-pagina" id="numero-pagina" placeholder="Ej. 5">
+                    
+                    <!-- Servicios Adicionales -->
+                    
+                    <div class="extra-services">
 
-            <label for="seo">SEO:
-                <input class="form-check-input" type="checkbox" id="seo" name="seo" data-precio="2000">
-                $2000
-            </label>
-            <br><br>
+                        <h3>Servicios adicionales</h3>
 
-            <button type="button">Calcular cotizacion</button>
-            <br>
-            <button type="button">Limpiar</button>
-            
-        </form>
+                        <div class="option">
+                            <label for="dominio" class="info">
+                            <input class="form-check-input" type="checkbox" id="dominio" name="dominio" data-precio="600">
+                            <p>Dominio</p>
+                            </label>
+                            <p class="price">$600</p>
+                        </div>
+                        <hr>
+                        
+                        <div class="option">
+                            <label for="hosting" class="info">
+                            <input class="form-check-input" type="checkbox" id="hosting" name="hosting" data-precio="1500">
+                            <p>Hosting</p>
+                            </label>
+                            <p class="price">$1500</p>
+                        </div>
+                        <hr>
+                        
+                        <div class="option">
+                            <label for="bd" class="info">
+                            <input class="form-check-input" type="checkbox" id="bd" name="bd" data-precio="7000">
+                            <p>Base de datos</p>
+                            </label>
+                            <p class="price">$7000</p>
+                        </div>
+                        <hr>
 
-        <div class="total">Total: <span id="total">0</span></div>
+                        <div class="option">
+                            <label for="changes" class="info">
+                            <input class="form-check-input" type="checkbox" id="changes" name="changes" data-precio="2000">
+                            <p>Cambios del dev</p>
+                            </label>
+                            <p class="price">$2000</p>
+                        </div>
+                        <hr>
 
-    </div>
+                        <div class="option">
+                            <label for="seo" class="info">
+                            <input class="form-check-input" type="checkbox" id="seo" name="seo" data-precio="2000">
+                            <p>SEO</p>
+                            </label>
+                            <p class="price">$2000</p>
+                        </div>
+                        <hr>
+
+
+                    </div>
+                    
+                    <button type="button" id="cotization-button">Calcular cotizacion</button>
+                    
+                    <button type="button">Limpiar</button>
+                    
+                </form>
+                <div class="total">Total: <span id="total">0</span></div>
+            </div>
+
+            <aside>
+                
+                <div class="initial-info">
+                    <h2>RESULTADO</h2>
+                    <h3>Aun no hay cotizacion</h3>
+                    <p>Ingresa los datos del cliente y selecciona los servicios</p>
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
 
     <footer>
         2026 Derechos Reservados
