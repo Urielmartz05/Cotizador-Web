@@ -32,10 +32,34 @@
 
     <main>
 
+        <div  class="window not-show">
+
+            <div class="window-header">
+                <div>
+                    <p>Title</p>
+                </div>
+                <div><button id="window-close">X</button></div>
+
+            </div>
+
+            <div class="window-content">
+                
+                <p>Mensaje</p>
+
+                <button>OK</button>
+
+            </div>
+
+        </div>
+
         <!-- Title and subtitle -->
         <section>
 
             <div class="titles">
+
+                <button class="show-window">Abrir</button>
+
+
                 <h1>Cotizador de sitio web</h1>
                 <p>Completa el formulario para generar una cotizacion estimada</p>
             </div>
@@ -136,6 +160,10 @@
         const changes = document.querySelector("#changes");
         const seo = document.querySelector("#seo");
 
+        var showWindow = document.querySelector(".show-window");
+        var closeWindow = document.querySelector("#window-closed");
+
+
        document.getElementById("total");
 
         // console.log(Number(dominio.dataset.precio));
@@ -145,6 +173,18 @@
         // console.log(Number(seo.dataset.precio));
 
         var total = 0;
+        var win = document.querySelector(".window");
+
+        showWindow.addEventListener("click", function() {
+           console.log("Click en abrir")
+           win.classList.add("show");
+           
+        });
+
+        closeWindow.addEventListener("click", function() {
+            win.classList.remove("show");
+            win.classList.add("not-show");
+        });
 
             // Dominio Event Listener
             dominio.addEventListener("click", function () {
