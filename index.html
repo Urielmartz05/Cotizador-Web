@@ -161,7 +161,7 @@
         const seo = document.querySelector("#seo");
 
         var showWindow = document.querySelector(".show-window");
-        var closeWindow = document.querySelector("#window-closed");
+        var closeWindow = document.querySelector("#window-close");
 
 
        document.getElementById("total");
@@ -177,6 +177,7 @@
 
         showWindow.addEventListener("click", function() {
            console.log("Click en abrir")
+           win.classList.remove("not-show");
            win.classList.add("show");
            
         });
